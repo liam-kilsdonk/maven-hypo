@@ -40,12 +40,11 @@ public class BerekenaarTest {
 
     @Test
     public void testLeenBedragMetRente() {
-        berekenaar.setMaxLeenBedrag();
-        berekenaar.setRente(0.04);
+        berekenaar.setEigenInkomen(1750);
+        berekenaar.setPartnerInkomen(2000);
+        berekenaar.setRente(0.05);
 
-        berekenaar.setLeenBedragMetRente(100000.0);
-
-        assertEquals(260000.0, berekenaar.getLeenBedragMetRente(), 0.01);
+        assertEquals(200812.5, berekenaar.getLeenBedragMetRente(), 0.01);
     }
 
     @Test
@@ -60,15 +59,14 @@ public class BerekenaarTest {
 
     @Test
     public void testMonthlyPayment() {
-//        berekenaar.setEigenInkomen(100);
-//        berekenaar.setPartnerInkomen(100);
-        berekenaar.getLeenBedragMetRente(1000);
+        berekenaar.setEigenInkomen(2100);
+        berekenaar.setPartnerInkomen(1500);
         berekenaar.setStudieSchuld(true);
         berekenaar.setTermijn(10);
         berekenaar.setRente(0.035);
 
         berekenaar.setAflossingPerMaand();
 
-        assertEquals(1000, berekenaar.getAflossingPerMaand(), 0.01);
+        assertEquals(1583.55, berekenaar.getAflossingPerMaand(), 0.01);
     }
 }
